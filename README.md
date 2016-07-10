@@ -1,5 +1,5 @@
 # peek-a-tab
-Chrome extention to manage tabs
+**Chrome extention to manage tabs**
 
 Gmail(1) + drive(1) + docs(2) + spreadsheet(2) + facebook(2) + news(6) + whatsapp web(1) + youtube(2) + amazon(2) + some cool thing I found recently (5) + some old stuff I want to read but haven't till now and it is there for past 5 days(3) + stack overflow (5) + google search for those stack overflow questions (2)= 34 tabs right now in my browser window
 
