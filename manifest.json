@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Peek-a-tab!!",
-  "description": "See all your tabs and see the actual tab on hover on the list item.",
+  "description": "Quick and effortless tabs management for chrome- get a list of all your tabs, see what's happening in each tab just by moving your cursor on the list, shift to one or close it.",
   "version": "0.1",
   "icons": {
     "128": "icon_128.png"

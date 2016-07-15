@@ -15,15 +15,17 @@ _ga('send', 'pageview');
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    //browser = chrome;
+
     var activeWindowId = window.activeWindowId,
         selectedTabId = window.selectedTabId;
 
     $(document).mouseleave(function () {
-        chrome.tabs.update(selectedTabId, {active: true});
+        browser.tabs.update(selectedTabId, {active: true});
         window.close();
     });
 
-    chrome.tabs.getAllInWindow(activeWindowId, function (tabs) {
+    browser.tabs.getAllInWindow(activeWindowId, function (tabs) {
         var list = $("#tabs-list");
         tabs.forEach(function (tab) {
             var iconUrl = tab.favIconUrl,
@@ -58,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $(document).on("mouseover", "#tabs-list li", function () {
         var tabId = $(this).data("tab-id");
-        chrome.tabs.update(tabId, {active: true});
+        browser.tabs.update(tabId, {active: true});
     });
 
     $(document).on("click", "#tabs-list li", function () {
@@ -72,11 +74,11 @@ document.addEventListener('DOMContentLoaded', function () {
         var listItems = $("#tabs-list").find("li");
 
         if (listItems.length == 1) {
-            chrome.tabs.create({windowId: activeWindowId});
+            browser.tabs.create({windowId: activeWindowId});
         }
 
         li.remove();
-        chrome.tabs.remove(tabId);
+        browser.tabs.remove(tabId);
         event.stopPropagation();
 
         if (listItems.length == 1) {
