@@ -9,7 +9,7 @@
   },
   "browser_action": {
     "default_icon": "icon_128.png",
-    "default_popup": "initializer.html"
+    "default_popup": "popup.html"
   },
   "permissions": [
     "tabs",

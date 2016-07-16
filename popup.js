@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     var popupWindow;
 
-    //browser=chrome;
+    var browser=chrome;
 
     browser.windows.getCurrent(function (win) {
         browser.tabs.query({currentWindow: true, active: true}, function (tabs) {

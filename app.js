@@ -15,7 +15,7 @@ _ga('send', 'pageview');
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    //browser = chrome;
+    var browser = chrome;
 
     var activeWindowId = window.activeWindowId,
         selectedTabId = window.selectedTabId;
