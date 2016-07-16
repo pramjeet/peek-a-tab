@@ -36,15 +36,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 iconUrl = "";
             }
 
-            if (title.length > 32) {
-                title = title.substr(0, 32) + "...";
+            var active = "";
+            if (tab.id == selectedTabId) {
+                active = "active";
             }
 
             if (url.length > 32) {
                 url = url.substr(0, 32) + "...";
             }
 
-            var li = "<li title='" + tab.url + "' data-tab-id=" + tab.id + ">" +
+            var li = "<li class='" + active + "' title='" + tab.title + "' data-tab-id=" + tab.id + ">" +
                 "<div class='icon-div'>" +
                 "<img class='icon' src='" + iconUrl + "' />" +
                 "</div>" +
@@ -52,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "<p class='title'>" + title + "</p>" +
                 "<p class='url'>" + url + "</p>" +
                 "</div>" +
-                "<img class='close-icon' src='close_icon.png' />"
-            "</li>";
+                "<img title='close' class='close-icon' src='close_icon.png' />" +
+                "</li>";
             list.append(li);
         });
     });

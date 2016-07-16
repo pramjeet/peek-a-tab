@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: 'robotoregular';
 }
 
 #tabs-list {
@@ -10,9 +11,11 @@ body {
 }
 
 #tabs-list li {
-    padding: 7px 7px 9px;
-    border-bottom: 1px solid #f7f7f7;
+    padding: 5px 7px;
+    border-bottom: 1px solid #eeeeee;
     position: relative;
+    height: 20px;
+    color: #101010;
 }
 
 #tabs-list li:hover {
@@ -20,12 +23,12 @@ body {
 }
 
 #tabs-list li.active {
-    background-color: #eeeeee;
+    background-color: #818a9e;
+    color: #fff;
 }
 
 .icon-div {
     width: 20px;
-    height: 20px;
     float: left;
     margin-right: 10px;
 }
@@ -35,14 +38,20 @@ body {
 }
 
 .text-div {
+    margin-top: 1px;
     display: inline-block;
     position: relative;
+    max-width: 220px;
 }
 
 .title {
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
     cursor: default;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .url {
@@ -57,8 +66,8 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    height: 22px;
-    padding: 7px;
+    height: 20px;
+    padding: 5px;
     background-color: #e05454;
     cursor: pointer;
 }
