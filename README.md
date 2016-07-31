@@ -16,5 +16,5 @@ here's the link: [chrome store](https://chrome.google.com/webstore/detail/peek-a
 
 Wish list:
 * better UI/UX
-* drag-drop list items to change tabs' positions (don't know if chrome APIs have the capability)
+* drag-drop list items to change tabs' positions
 * tab suspension from the list itself

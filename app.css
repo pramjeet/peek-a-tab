@@ -3,6 +3,57 @@ body {
     font-family: 'robotoregular';
 }
 
+#close_msg_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 2;
+    display: none;
+}
+
+#close_msg_container {
+    position: relative;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #eeeeee;
+    width: 75%;
+    margin: 20px auto;
+}
+
+#close_msg {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#close_msg_yes {
+    width: 80px;
+    background: green;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    margin-left: 10px;
+}
+
+#close_msg_no {
+    width: 60px;
+    background: red;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    margin-left: 20px;
+}
+
+#close_msg_hint {
+    margin-top: 40px;
+    color: #818a9e;
+    font-style: italic;
+}
+
 #tabs-list {
     list-style: none;
     padding: 0;

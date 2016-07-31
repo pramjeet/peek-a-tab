@@ -1,9 +1,8 @@
 {
   "manifest_version": 2,
-
   "name": "Peek-a-tab!!",
-  "description": "Quick and effortless tabs management for chrome- get a list of all your tabs, see what's happening in each tab just by moving your cursor on the list, shift to one or close it.",
-  "version": "0.1",
+  "description": "Quick & effortless tabs management- get a peek on each tab just by moving your cursor on the list, shift to or close it.",
+  "version": "0.3",
   "icons": {
     "128": "icon_128.png"
   },
@@ -11,11 +10,10 @@
     "default_icon": "icon_128.png",
     "default_popup": "popup.html"
   },
+  "options_page": "options.html",
   "permissions": [
     "tabs",
-    "https://www.google-analytics.com/",
     "storage"
   ],
-  "content_security_policy": "script-src 'self' https://www.google-analytics.com/analytics.js; object-src 'self'",
   "offline_enabled": true
 }
