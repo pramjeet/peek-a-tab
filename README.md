@@ -15,6 +15,6 @@ Things it can do:
 here's the link: [chrome store](https://chrome.google.com/webstore/detail/peek-a-tab/nnpdamdaknpnohmlbnmgphiodghbohop)
 
 Wish list:
-* better UI/UX
+* remove jquery dependency
 * drag-drop list items to change tabs' positions
 * tab suspension from the list itself

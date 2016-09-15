@@ -19,7 +19,7 @@ body {
     background-color: #fff;
     padding: 10px;
     border: 1px solid #eeeeee;
-    width: 75%;
+    width: 85%;
     margin: 20px auto;
 }
 
@@ -30,22 +30,22 @@ body {
 
 #close_msg_yes {
     width: 80px;
-    background: green;
+    color: green;
     padding: 5px;
     border-radius: 5px;
     border: none;
-    color: #fff;
+    /*color: #fff;*/
     margin-left: 10px;
 }
 
 #close_msg_no {
     width: 60px;
-    background: red;
+    color: red;
     padding: 5px;
     border-radius: 5px;
     border: none;
-    color: #fff;
-    margin-left: 20px;
+    /*color: #fff;*/
+    margin-left: 40px;
 }
 
 #close_msg_hint {
@@ -74,7 +74,7 @@ body {
 }
 
 #tabs-list li.active {
-    background-color: #818a9e;
+    background-color: #5d8db0;
     color: #fff;
 }
 
