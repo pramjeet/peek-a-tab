@@ -1,5 +1,57 @@
 body {
     margin: 0;
+    font-family: 'robotoregular';
+}
+
+#close_msg_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 2;
+    display: none;
+}
+
+#close_msg_container {
+    position: relative;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #eeeeee;
+    width: 85%;
+    margin: 20px auto;
+}
+
+#close_msg {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#close_msg_yes {
+    width: 80px;
+    color: green;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    /*color: #fff;*/
+    margin-left: 10px;
+}
+
+#close_msg_no {
+    width: 60px;
+    color: red;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    /*color: #fff;*/
+    margin-left: 40px;
+}
+
+#close_msg_hint {
+    margin-top: 40px;
+    color: #818a9e;
+    font-style: italic;
 }
 
 #tabs-list {
@@ -10,9 +62,11 @@ body {
 }
 
 #tabs-list li {
-    padding: 7px 7px 9px;
-    border-bottom: 1px solid #f7f7f7;
+    padding: 5px 7px;
+    border-bottom: 1px solid #eeeeee;
     position: relative;
+    height: 20px;
+    color: #101010;
 }
 
 #tabs-list li:hover {
@@ -20,12 +74,12 @@ body {
 }
 
 #tabs-list li.active {
-    background-color: #eeeeee;
+    background-color: #5d8db0;
+    color: #fff;
 }
 
 .icon-div {
     width: 20px;
-    height: 20px;
     float: left;
     margin-right: 10px;
 }
@@ -35,14 +89,20 @@ body {
 }
 
 .text-div {
+    margin-top: 1px;
     display: inline-block;
     position: relative;
+    max-width: 220px;
 }
 
 .title {
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
     cursor: default;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .url {
@@ -57,8 +117,8 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    height: 22px;
-    padding: 7px;
+    height: 20px;
+    padding: 5px;
     background-color: #e05454;
     cursor: pointer;
 }

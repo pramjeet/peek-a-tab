@@ -1,19 +1,13 @@
-(function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', '_ga');
-
-_ga('create', 'UA-79860227-1', 'auto');
-_ga('send', 'pageview');
-
 document.addEventListener('DOMContentLoaded', function () {
+
+    var appWindowId;
+    chrome.windows.getCurrent({populate: false}, function (appWindow) {
+        appWindowId = appWindow.id;
+    });
+
+    chrome.windows.onFocusChanged.addListener(function () {
+        chrome.windows.update(appWindowId, {focused: true});
+    });
 
     var browser = chrome;
 
@@ -22,8 +16,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $(document).mouseleave(function () {
         browser.tabs.update(selectedTabId, {active: true});
-        window.close();
     });
+
+    chrome.storage.sync.get(null, function (items) {
+
+        if (typeof items.closeWindowOnMouseLeave === "undefined") {
+            $(document).mouseleave(function () {
+                $("#close_msg_overlay").show();
+            });
+
+        } else if (items.closeWindowOnMouseLeave == true) {
+            $(document).mouseleave(function () {
+                window.close();
+            });
+        }
+    });
+
+    $("#close_msg_yes").click(function(){
+        chrome.storage.sync.set({
+            closeWindowOnMouseLeave: true
+        });
+        $("#close_msg_overlay").hide();
+
+            $(document).mouseleave(function () {
+                window.close();
+            });
+    });
+
+    $("#close_msg_no").click(function(){
+        chrome.storage.sync.set({
+            closeWindowOnMouseLeave: false
+        });
+        $("#close_msg_overlay").hide();
+        $(document).mouseleave(function () {
+            $("#close_msg_overlay").hide();
+        });
+    });
+
 
     browser.tabs.getAllInWindow(activeWindowId, function (tabs) {
         var list = $("#tabs-list");
@@ -36,15 +65,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 iconUrl = "";
             }
 
-            if (title.length > 32) {
-                title = title.substr(0, 32) + "...";
+            var active = "";
+            if (tab.id == selectedTabId) {
+                active = "active";
             }
 
             if (url.length > 32) {
                 url = url.substr(0, 32) + "...";
             }
 
-            var li = "<li title='" + tab.url + "' data-tab-id=" + tab.id + ">" +
+            var li = "<li class='" + active + "' title='" + tab.title + "' data-tab-id=" + tab.id + ">" +
                 "<div class='icon-div'>" +
                 "<img class='icon' src='" + iconUrl + "' />" +
                 "</div>" +
@@ -52,8 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "<p class='title'>" + title + "</p>" +
                 "<p class='url'>" + url + "</p>" +
                 "</div>" +
-                "<img class='close-icon' src='close_icon.png' />"
-            "</li>";
+                "<img title='close' class='close-icon' src='close_icon.png' />" +
+                "</li>";
             list.append(li);
         });
     });
