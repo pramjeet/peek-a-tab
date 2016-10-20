@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
         appWindowId = appWindow.id;
     });
 
-    chrome.windows.onFocusChanged.addListener(function () {
-        chrome.windows.update(appWindowId, {focused: true});
-    });
+    //chrome.windows.onFocusChanged.addListener(function () {
+    //    chrome.windows.update(appWindowId, {focused: true});
+    //});
 
     var browser = chrome;
 
@@ -32,18 +32,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    $("#close_msg_yes").click(function(){
+    $("#close_msg_yes").click(function () {
         chrome.storage.sync.set({
             closeWindowOnMouseLeave: true
         });
         $("#close_msg_overlay").hide();
 
-            $(document).mouseleave(function () {
-                window.close();
-            });
+        $(document).mouseleave(function () {
+            window.close();
+        });
     });
 
-    $("#close_msg_no").click(function(){
+    $("#close_msg_no").click(function () {
         chrome.storage.sync.set({
             closeWindowOnMouseLeave: false
         });
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-
+    var i = 0;
     browser.tabs.getAllInWindow(activeWindowId, function (tabs) {
         var list = $("#tabs-list");
         tabs.forEach(function (tab) {
@@ -74,17 +74,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 url = url.substr(0, 32) + "...";
             }
 
-            var li = "<li class='" + active + "' title='" + tab.title + "' data-tab-id=" + tab.id + ">" +
-                "<div class='icon-div'>" +
+            var $li = $("<li class='" + active + "' data-tab-id='" + tab.id + "'>" +
                 "<img class='icon' src='" + iconUrl + "' />" +
-                "</div>" +
-                "<div class='text-div'>" +
                 "<p class='title'>" + title + "</p>" +
-                "<p class='url'>" + url + "</p>" +
-                "</div>" +
                 "<img title='close' class='close-icon' src='close_icon.png' />" +
-                "</li>";
-            list.append(li);
+                "</li>" +
+                "<div class='desc'>" + tab.title + "</div>"
+            );
+            list.append($li);
+
+
+            setTimeout(function () {
+                $li.addClass('visible');
+            }, i * 30);
+            i++;
         });
     });
 

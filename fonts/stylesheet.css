@@ -1,12 +1,7 @@
 @font-face {
-    font-family: 'robotoregular';
-    src: url('Roboto-Regular-webfont.eot');
-    src: url('Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Roboto-Regular-webfont.woff') format('woff'),
-         url('Roboto-Regular-webfont.ttf') format('truetype'),
-         url('Roboto-Regular-webfont.svg#robotoregular') format('svg');
+    font-family: 'Rubik';
+    src: url('Rubik-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-
 }
 
