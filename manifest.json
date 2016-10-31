@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Peek-a-tab!!",
-  "description": "Quick & effortless tabs management- get a peek on each tab just by moving your cursor on the list, shift to or close it.",
-  "version": "0.3.1",
+  "name": "Peek a tab",
+  "description": "Quick & effortless tabs management- preview, jump across, or close tabs quickly.",
+  "version": "0.5",
   "icons": {
     "128": "icon_128.png"
   },

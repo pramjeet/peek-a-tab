@@ -1,5 +1,5 @@
-# peek-a-tab
-**Quick and effortless tabs management for chrome**
+# Peek a tab
+**Preview, jump across, or close tabs quickly in your chrome browser**
 
 Gmail(1) + drive(1) + docs(2) + spreadsheet(2) + facebook(2) + news(6) + whatsapp web(1) + youtube(2) + amazon(2) + some cool thing I found recently (5) + some old stuff I want to read but haven't till now and it is there for past 5 days(3) + stack overflow (5) + google search for those stack overflow questions (2)= 34 tabs right now in my browser window
 
@@ -16,5 +16,6 @@ here's the link: [chrome store](https://chrome.google.com/webstore/detail/peek-a
 
 Wish list:
 * remove jquery dependency
-* drag-drop list items to change tabs' positions
-* tab suspension from the list itself
+* header bar with options
+* option to group together tabs from same domain
+* option to show tabs with sound

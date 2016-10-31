@@ -1,6 +1,8 @@
 body {
     margin: 0;
-    font-family: 'robotoregular';
+    font-family: 'Rubik', sans-serif;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #close_msg_overlay {
@@ -21,56 +23,86 @@ body {
     border: 1px solid #eeeeee;
     width: 85%;
     margin: 20px auto;
+    text-align: center;
 }
 
 #close_msg {
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 #close_msg_yes {
     width: 80px;
-    color: green;
+    color: #7a94d2;
     padding: 5px;
     border-radius: 5px;
     border: none;
+    /* background: none; */
     /*color: #fff;*/
-    margin-left: 10px;
+    font-size: 14px;
+    margin: 10px 10px 10px 0px;
 }
 
 #close_msg_no {
-    width: 60px;
-    color: red;
+    width: 80px;
+    color: #7a94d2;
     padding: 5px;
     border-radius: 5px;
     border: none;
     /*color: #fff;*/
-    margin-left: 40px;
+    /* margin-left: 40px; */
+    margin: 10px 0px 10px 37px;
 }
 
 #close_msg_hint {
-    margin-top: 40px;
+    margin-top: 26px;
     color: #818a9e;
     font-style: italic;
+}
+
+#options-header {
+    position: fixed;
+    top: 0;
+    height: 1px;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #efefef;
+    /*box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);*/
+    z-index: 2;
 }
 
 #tabs-list {
     list-style: none;
     padding: 0;
-    border-top: 1px solid #eee;
-    margin: 0;
+    margin: 10px 10px 10px;
+    position: relative;
 }
 
 #tabs-list li {
-    padding: 5px 7px;
-    border-bottom: 1px solid #eeeeee;
+    padding: 0 7px;
     position: relative;
-    height: 20px;
+    height: 0;
+    margin: 8px 0;
+    border-radius: 3px;
     color: #101010;
+    background: #f7f7f7;
+    box-sizing: border-box;
+    cursor: pointer;
+    vertical-align: middle;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.5s ease;
+
+}
+
+#tabs-list li.visible {
+    opacity: 1;
+    padding: 8px 7px;
+    height: 36px;
 }
 
 #tabs-list li:hover {
-    background-color: #f7f7f7;
+    /*background-color: #CCDDE8;*/
 }
 
 #tabs-list li.active {
@@ -78,51 +110,84 @@ body {
     color: #fff;
 }
 
-.icon-div {
-    width: 20px;
-    float: left;
-    margin-right: 10px;
-}
-
 .icon {
-    width: 100%;
-}
-
-.text-div {
-    margin-top: 1px;
-    display: inline-block;
-    position: relative;
-    max-width: 220px;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0 10px 0 0px;
+    /* background: #e0e0e0; */
+    /* border: 2px solid #f3f3f3; */
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 .title {
-    font-size: 12px;
-    margin: 0;
-    cursor: default;
+    font-size: 13px;
+    margin: 2px 0;
+    display: block;
     white-space: nowrap;
-    text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
     overflow: hidden;
-}
-
-.url {
-    margin: 0;
-    color: #b9b9b9;
-    cursor: default;
-    display: none;
+    text-overflow: ellipsis;
+    vertical-align: middle;
 }
 
 .close-icon {
-    display: none;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 8px;
+    right: -20px;
     height: 20px;
-    padding: 5px;
+    padding: 3px;
     background-color: #e05454;
     cursor: pointer;
+    border-radius: 50%;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: 0.2s ease;
 }
 
 #tabs-list li:hover .close-icon {
+    opacity: 1;
+    right: 5px;
+}
+
+.desc {
+    background: #404040;
+    border-radius: 3px;
+    /* top: 70%; */
+    margin-top: -20px;
+    width: 100%;
+    left: 0;
+    color: #fff;
     display: block;
+    font-size: 13px;
+    opacity: 0;
+    padding: 7px 10px;
+    pointer-events: none;
+    position: absolute;
+    text-overflow: ellipsis;
+    transition: all .216s ease;
+    z-index: 99;
+    box-sizing: border-box;
+    display: none;
+}
+
+#tabs-list li:hover + .desc {
+    /* top: 100%; */
+    opacity: 1;
+    margin-top: -10px;
+}
+
+.desc:before {
+    bottom: 100%;
+    left: 10px;
+    border: 8px solid transparent;
+    border-bottom-color: #404040;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    z-index: 20;
 }
