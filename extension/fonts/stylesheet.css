@@ -5,3 +5,10 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Rubik';
+    src: url('Rubik-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
