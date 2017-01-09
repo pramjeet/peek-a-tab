@@ -3,9 +3,49 @@
 <head>
     <title>Peek a tab</title>
     <link href="fonts/stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="app.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div id="app"></div>
-<script src="./dist/app.js"></script>
+<div id="app"
+     @keyup.esc="closeWindow"
+     @keydown.down="makeNextTabActive"
+     @keydown.up="makePreviousTabActive"
+     @keyup.enter="shiftAndCloseTabId(activeTabId)">
+
+    <div id="options-header">
+        <div id="search-div">
+            <img id="search-icon" src="./images/search.png"/>
+            <input placeholder="search title and url"
+                   id="search-input" type="text"
+                   v-model="searchText"/>
+        </div>
+
+        <div id="options">
+            <!--<div class="option">-->
+                <!--<div @click="changeMouseBehavior" class="option-inner">-->
+                    <!--<img v-if="mouseBehavior=='click'" src="./images/cursor-pointer-clicked.png"/>-->
+                    <!--<img v-else src="./images/cursor-pointer.png"/>-->
+                <!--</div>-->
+
+                <!--<div v-show="mouseBehaviorHintText.length>0" class="option-hint">-->
+                    <!--<p class="option-hint-text">-->
+                            <!--<span>-->
+                                <!--{{mouseBehaviorHintText}}-->
+                            <!--</span>-->
+                    <!--</p>-->
+
+                    <!--<button @click="mouseBehaviorHintText=''" class="option-hint-button">-->
+                        <!--ok-->
+                    <!--</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+
+    <div id="tabs-list">
+
+    </div>
+</div>
+<script src="app.js"></script>
 </body>
 </html>

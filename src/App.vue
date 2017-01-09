@@ -77,7 +77,7 @@
                 searchText: "",
                 windows: [],
                 activeTabId: 0,
-                mouseBehavior: 'hover',
+                mouseBehavior: 'click',
                 mouseBehaviorHintText: "",
                 closeOnFocusChange: true,
                 thisWindowId: 0,
@@ -179,23 +179,19 @@
 
                     $vm.windows = windows;
 
-                    var tabIndex = 0;
-
                     $vm.windows.forEach(function (aWindow) {
                         if (aWindow.id == $vm.activeWindowId) {
                             for (var i = 0; i < aWindow.tabs.length; i++) {
-                                console.log("tab " + i + " :", aWindow.tabs[i]);
                                 if (aWindow.tabs[i].active) {
                                     $vm.activeTabId = aWindow.tabs[i].id;
-                                    tabIndex = $vm.filteredTabIds.indexOf(aWindow.tabs[i].id);
+
+                                    (function (tabIndex) {
+                                        $vm.scrollToShowTab(tabIndex + 3);
+                                    })($vm.filteredTabIds.indexOf(aWindow.tabs[i].id))
                                 }
                             }
                         }
                     });
-
-                    setTimeout(function () {
-                        $vm.scrollToShowTab(tabIndex + 3);
-                    }, 200);
                 })
             },
             closeNotification: function () {
@@ -284,7 +280,7 @@
                 chrome.tabs.remove(tabId, function () {
                     setTimeout(function () {
                         $vm.populateWindows();
-                    },200);
+                    },50);
                 });
 
             },
