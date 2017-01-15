@@ -21,30 +21,50 @@
         </div>
 
         <div id="options">
-            <!--<div class="option">-->
-                <!--<div @click="changeMouseBehavior" class="option-inner">-->
-                    <!--<img v-if="mouseBehavior=='click'" src="./images/cursor-pointer-clicked.png"/>-->
-                    <!--<img v-else src="./images/cursor-pointer.png"/>-->
-                <!--</div>-->
+            <div class="option">
+                <div class="option-inner">
+                    <img class="option-icon" id="mouse-behavior-image" src="./images/cursor-pointer-hover.png"/>
+                </div>
 
-                <!--<div v-show="mouseBehaviorHintText.length>0" class="option-hint">-->
-                    <!--<p class="option-hint-text">-->
-                            <!--<span>-->
-                                <!--{{mouseBehaviorHintText}}-->
-                            <!--</span>-->
-                    <!--</p>-->
+                <div class="option-body" id="mouse-behavior-options-container">
 
-                    <!--<button @click="mouseBehaviorHintText=''" class="option-hint-button">-->
-                        <!--ok-->
-                    <!--</button>-->
+                    <div class="option-choice mouse-behavior-option" data-mouse-behavior="hover">
+                        <img class="option-choice-image" src="./images/cursor-pointer-hover.png"/>
+                        <p class="option-choice-text">Change Tab on hover, click to shift to the tab and close tabs
+                            list.</p>
+                    </div>
+
+                    <div class="option-choice mouse-behavior-option" data-mouse-behavior="single-click">
+                        <img class="option-choice-image" src="./images/cursor-pointer-single-click.png"/>
+                        <p class="option-choice-text">Change Tab on click, double click to shift to the tab and close
+                            tabs list.</p>
+                    </div>
+
+                    <div class="option-choice mouse-behavior-option" data-mouse-behavior="click">
+                        <img class="option-choice-image" src="./images/cursor-pointer-click.png"/>
+                        <p class="option-choice-text">Shift to the tab and close tabs list with a single click.</p>
+                    </div>
+
+                </div>
+
+                <!--<div class="option-hint">-->
+                <!--<p class="option-hint-text">-->
+                <!--<span>-->
+                <!--Change mouse behavior-->
+                <!--</span>-->
+                <!--</p>-->
+
+                <!--<button class="option-hint-button">-->
+                <!--ok-->
+                <!--</button>-->
                 <!--</div>-->
-            <!--</div>-->
+            </div>
         </div>
     </div>
 
-    <div id="tabs-list">
+    <ul id="tabs-list">
 
-    </div>
+    </ul>
 </div>
 <script src="app.js"></script>
 </body>

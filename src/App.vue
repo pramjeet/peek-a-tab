@@ -21,16 +21,16 @@
                     </div>
 
                     <div v-show="mouseBehaviorHintText.length>0" class="option-hint">
-                        <p class="option-hint-text">
+                    <p class="option-hint-text">
                             <span>
                                 {{mouseBehaviorHintText}}
                             </span>
-                        </p>
+                    </p>
 
-                        <button @click="mouseBehaviorHintText=''" class="option-hint-button">
-                            ok
-                        </button>
-                    </div>
+                    <button @click="mouseBehaviorHintText=''" class="option-hint-button">
+                        ok
+                    </button>
+                </div>
                 </div>
             </div>
         </div>
