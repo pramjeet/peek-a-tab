@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     "Tabs you can peek at",
                     "alwaysOnTop=yes,width=" + width + ",height=" + (win.height - 10) + ",left=" + window.screenLeft + ",top=" + (window.screenTop - 70)
                 );
-                popupWindow.targetWindowId = win.id;
+                popupWindow.initialWindowId = win.id;
 
                 window.close(); // close the Chrome extension pop-up
             });
