@@ -20,9 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         searchInput.focus();
     });
 
-    searchInput.addEventListener("input", function () {
-        populateTabs();
-    });
+    searchInput.addEventListener("input", populateTabs);
 
     //save width changes
     window.addEventListener('resize', function (event) {
@@ -38,11 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function highlight(text, textToHighlight) {
-        if (textToHighlight.length > 0) {
+        if (textToHighlight.length > 0)
             return text.toLowerCase().replace(textToHighlight, "<span class='highlight'>" + textToHighlight + "</span>")
-        } else {
-            return text;
-        }
+        else return text;
     }
 
     /**
@@ -59,15 +55,13 @@ document.addEventListener('DOMContentLoaded', function () {
     chrome.windows.getCurrent({}, function (peekATabWindow) {
         peekATabWindowId = peekATabWindow.id;
         chrome.windows.onFocusChanged.addListener(function (newWindowId) {
-            if (closeOnFocusChange && newWindowId != peekATabWindow.id && newWindowId != chrome.windows.WINDOW_ID_NONE) {
+            if (closeOnFocusChange && newWindowId != peekATabWindow.id && newWindowId != chrome.windows.WINDOW_ID_NONE) 
                 window.close();
-            }
         });
     });
 
 
     function changeActiveTab(tab) {
-
         if (tab.windowId != activeWindowId) {
             closeOnFocusChange = false;
             chrome.windows.update(tab.windowId, {focused: true}, function () {
@@ -80,9 +74,8 @@ document.addEventListener('DOMContentLoaded', function () {
         chrome.tabs.update(tab.id, {active: true});
         activeWindowId = tab.windowId;
 
-        if (activeTabElement) {
+        if (activeTabElement) 
             activeTabElement.classList.remove("active");
-        }
 
         activeTabElement = document.getElementById(tab.id);
         activeTabElement.classList.add("active");
@@ -95,18 +88,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function hoveredOnTab(tab) {
-        if (mouseBehavior == "hover") {
+        if (mouseBehavior == "hover") 
             changeActiveTab(tab);
-        }
     }
 
     function clickedOnTab(tab) {
-        if (mouseBehavior == "click") {
+        if (mouseBehavior == "click") 
             changeActiveTab(tab);
-        }
-        else if (mouseBehavior == "single-click") {
+        else if (mouseBehavior == "single-click") 
             changeActiveTabAndCloseWindow(tab);
-        }
     }
 
     function doubleClickedOnTab(tab) {
@@ -114,29 +104,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function getActiveTabIndex() {
-        var tabIndex;
+        var tabIndex, tabEls = document.getElementsByClassName('tab');
 
-        var tabEls = document.getElementsByClassName('tab');
-
-        for (tabIndex = 0; tabIndex < tabEls.length; tabIndex++) {
+        for (tabIndex = 0; tabIndex < tabEls.length; tabIndex++) 
             if (activeTabElement.id == tabEls[tabIndex].id)
                 return tabIndex;
-        }
     }
 
     function makeTabIndexActive(tabIndex) {
         var tabElement = document.getElementsByClassName('tab')[tabIndex];
         var tabId = tabElement.id;
 
-        chrome.tabs.get(+tabId, function (tab) {
-            changeActiveTab(tab);
-        });
+        chrome.tabs.get(+tabId, changeActiveTab);
     }
 
     function makeNextTabActive() {
-
-        var tabIndex = getActiveTabIndex();
-        var tabEls = document.getElementsByClassName('tab');
+        var tabIndex = getActiveTabIndex(), tabEls = document.getElementsByClassName('tab');
 
         if (tabIndex < (tabEls.length - 1)) {
             makeTabIndexActive(tabIndex + 1);
@@ -148,8 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function makePreviousTabActive() {
-        var tabIndex = getActiveTabIndex();
-        var tabEls = document.getElementsByClassName('tab');
+        var tabIndex = getActiveTabIndex(), tabEls = document.getElementsByClassName('tab');
 
         if (tabIndex > 0) {
             makeTabIndexActive(tabIndex - 1);
@@ -161,15 +143,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function scrollToShowActiveTab() {
-
         var tabIndex = getActiveTabIndex();
 
         chrome.windows.getAll({populate: true, windowTypes: ['normal']}, function (windows) {
-            if ((tabsListEl.offsetHeight + tabsListEl.scrollTop) < (36 * (tabIndex + (windows.length + 1)))) {
+            if ((tabsListEl.offsetHeight + tabsListEl.scrollTop) < (36 * (tabIndex + (windows.length + 1))))
                 tabsListEl.scrollTop = (36 * (tabIndex + (windows.length + 1))) - tabsListEl.offsetHeight;
-            } else if (tabsListEl.scrollTop > (36 * tabIndex)) {
-                tabsListEl.scrollTop = (36 * tabIndex);
-            }
+            else if (tabsListEl.scrollTop > (36 * tabIndex))
+                tabsListEl.scrollTop = (36 * tabIndex);           
         });
     }
 
@@ -178,17 +158,17 @@ document.addEventListener('DOMContentLoaded', function () {
      */
     function populateTabs() {
         chrome.windows.getAll({populate: true, windowTypes: ['normal']}, function (windows) {
-
+            var aWindow, windowTitle;
+            
             //if no window present, close peek-a-tab
-            if (windows.length == 0) {
+            if (windows.length == 0)
                 window.close();
-            }
 
             tabsListEl.innerHTML = "";
 
             for (var i = 0; i < windows.length; i++) {
-                var aWindow = windows[i];
-                var windowTitle = document.createElement('li');
+                aWindow = windows[i];
+                windowTitle = document.createElement('li');
                 windowTitle.classList.add("window-text");
                 windowTitle.textContent = "Window " + (i + 1);
 
@@ -298,22 +278,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //show hint to change mouse behavior
     chrome.storage.sync.get(null, function (items) {
-        if (typeof items.mouseBehavior == "undefined") {
+        if (typeof items.mouseBehavior == "undefined")
             saveMouseBehavior();
-        } else {
+        else
             mouseBehavior = items.mouseBehavior;
-        }
 
         changeMouseBehaviorImage();
     });
 
 
-    var mouseBehaviorOptionsContainer = document.getElementById("mouse-behavior-options-container");
-
-    var mouseBehaviorOptions = document.getElementsByClassName("mouse-behavior-option");
+    var mouseBehaviorOptionsContainer = document.getElementById("mouse-behavior-options-container"),
+        mouseBehaviorOptions = document.getElementsByClassName("mouse-behavior-option");
 
     for (var i = 0; i < mouseBehaviorOptions.length; i++) {
-
         mouseBehaviorOptions[i].addEventListener('click', (function (mouseBehaviorOption) {
             return function () {
                 mouseBehavior = mouseBehaviorOption.dataset.mouseBehavior;
@@ -326,16 +303,14 @@ document.addEventListener('DOMContentLoaded', function () {
     mouseBehaviorImage.addEventListener("click", function (e) {
         e.stopPropagation();
 
-        if (mouseBehaviorOptionsContainer.style.display != "block") {
+        if (mouseBehaviorOptionsContainer.style.display != "block")
             mouseBehaviorOptionsContainer.style.display = "block";
-        } else {
+        else
             mouseBehaviorOptionsContainer.style.display = "none";
-        }
     });
 
     document.addEventListener("click", function () {
-        if (mouseBehaviorOptionsContainer.style.display != "none") {
+        if (mouseBehaviorOptionsContainer.style.display != "none"
             mouseBehaviorOptionsContainer.style.display = "none";
-        }
     })
 });
