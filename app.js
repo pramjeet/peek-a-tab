@@ -1,6 +1,9 @@
 /**
  * Created by pramj on 1/9/2017.
  */
+
+const THIS_VERSION = '1.5.4'
+
 document.addEventListener('DOMContentLoaded', function () {
 
     var activeWindowId = window.initialWindowId
@@ -368,4 +371,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     populateTabs()
+
+    // anoouncements related stuff
+    let announcementEl = document.getElementById('announcement-container')
+    let announcementCloseIconEl = document.getElementById('announcement-close-icon')
+    function showAnnouncement() {
+        announcementEl.classList.add('visible')
+    }
+
+    function hideAnnouncement() {
+        announcementEl.classList.remove('visible')
+    }
+
+    chrome.storage.sync.get(null, function (items) {
+        if (items.announcementShowedForVersion != THIS_VERSION) {
+            setTimeout(function () {
+                showAnnouncement()
+            }, 300)
+
+            announcementCloseIconEl.addEventListener('click', function () {
+                hideAnnouncement()
+
+                chrome.storage.sync.set({
+                    announcementShowedForVersion: THIS_VERSION
+                })
+            })
+        }
+    })
 })

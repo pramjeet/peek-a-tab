@@ -1,71 +1,80 @@
 <!doctype html>
 <html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+
 <head>
     <title>Peek a tab</title>
     <link href="fonts/stylesheet.css" rel="stylesheet" type="text/css">
     <link href="app.css" rel="stylesheet" type="text/css">
 </head>
-<body>
-<div id="app"
-     @keyup.esc="closeWindow"
-     @keydown.down="makeNextTabActive"
-     @keydown.up="makePreviousTabActive"
-     @keyup.enter="shiftAndCloseTabId(activeTabId)">
 
-    <div id="options-header">
-        <div id="search-div">
-            <img id="search-icon" src="./images/search.png"/>
-            <input placeholder="search title and url"
-                   id="search-input" type="text"
-                   v-model="searchText"/>
+<body>
+    <div id="app">
+
+        <div id="options-header">
+            <div id="search-div">
+                <img id="search-icon" src="./images/search.png" />
+                <input placeholder="search title and url" id="search-input" type="text" v-model="searchText" />
+            </div>
+
+            <div id="options">
+                <div class="option">
+                    <div class="option-inner">
+                        <img class="option-icon" id="mouse-behavior-image" src="./images/cursor-pointer-hover.png" />
+                    </div>
+
+                    <div class="option-body" id="mouse-behavior-options-container">
+
+                        <div class="option-choice mouse-behavior-option" data-mouse-behavior="hover">
+                            <img class="option-choice-image" src="./images/cursor-pointer-hover.png" />
+                            <p class="option-choice-text">Change Tab on hover, single click to shift to the tab and close tabs list.
+                            </p>
+                        </div>
+
+                        <div class="option-choice mouse-behavior-option" data-mouse-behavior="single-click">
+                            <img class="option-choice-image" src="./images/cursor-pointer-single-click.png" />
+                            <p class="option-choice-text">Shift to the tab and close tabs list with a single click.</p>
+                        </div>
+
+                        <div class="option-choice mouse-behavior-option" data-mouse-behavior="click">
+                            <img class="option-choice-image" src="./images/cursor-pointer-click.png" />
+                            <p class="option-choice-text">Change Tab on click, double click to shift to the tab and close tabs list.</p>
+                        </div>
+
+                    </div>
+
+                    <!--<div class="option-hint">-->
+                    <!--<p class="option-hint-text">-->
+                    <!--<span>-->
+                    <!--Change mouse behavior-->
+                    <!--</span>-->
+                    <!--</p>-->
+
+                    <!--<button class="option-hint-button">-->
+                    <!--ok-->
+                    <!--</button>-->
+                    <!--</div>-->
+                </div>
+            </div>
         </div>
 
-        <div id="options">
-            <div class="option">
-                <div class="option-inner">
-                    <img class="option-icon" id="mouse-behavior-image" src="./images/cursor-pointer-hover.png"/>
-                </div>
+        <ul id="tabs-list">
+        </ul>
 
-                <div class="option-body" id="mouse-behavior-options-container">
-
-                    <div class="option-choice mouse-behavior-option" data-mouse-behavior="hover">
-                        <img class="option-choice-image" src="./images/cursor-pointer-hover.png"/>
-                        <p class="option-choice-text">Change Tab on hover, single click to shift to the tab and close tabs
-                            list.</p>
-                    </div>
-
-                    <div class="option-choice mouse-behavior-option" data-mouse-behavior="single-click">
-                        <img class="option-choice-image" src="./images/cursor-pointer-single-click.png"/>
-                        <p class="option-choice-text">Shift to the tab and close tabs list with a single click.</p>
-                    </div>
-
-                    <div class="option-choice mouse-behavior-option" data-mouse-behavior="click">
-                        <img class="option-choice-image" src="./images/cursor-pointer-click.png"/>
-                        <p class="option-choice-text">Change Tab on click, double click to shift to the tab and close
-                            tabs list.</p>
-                    </div>
-
-                </div>
-
-                <!--<div class="option-hint">-->
-                <!--<p class="option-hint-text">-->
-                <!--<span>-->
-                <!--Change mouse behavior-->
-                <!--</span>-->
-                <!--</p>-->
-
-                <!--<button class="option-hint-button">-->
-                <!--ok-->
-                <!--</button>-->
-                <!--</div>-->
+        <div id="announcement-container">
+            <div id="announcement_header">
+                <h3 id="announcement-title">What's New</h3>
+                <img id="announcement-close-icon" src="images/close_icon.png" />
+            </div>
+            <div id="announcement-body">
+                <ul id="announcement-list">
+                    <li>Close tab with 'delete' and 'backspace' keys</li>
+                    <li>Better keyboard navigation</li>
+                    <li>This awesome area to tell about what's new in an update ;)</li>
+                </ul>
             </div>
         </div>
     </div>
-
-    <ul id="tabs-list">
-
-    </ul>
-</div>
-<script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>
