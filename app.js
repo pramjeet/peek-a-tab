@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (mouseBehavior == "click") {
             changeActiveTab(tab)
         }
-        else if (mouseBehavior == "single-click") {
+        else {
             changeActiveTabAndCloseWindow(tab)
         }
     }
