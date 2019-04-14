@@ -15,12 +15,16 @@ document.addEventListener('DOMContentLoaded', function () {
         browser.windows.getCurrent(function (win) {
             browser.tabs.query({windowId: win.id, active: true}, function (tabs) {
                 var tab = tabs[0];
-                popupWindow = window.open(
-                    browser.extension.getURL("app.html"),
-                    "Tabs you can peek at",
-                    "alwaysOnTop=yes,width=" + width + ",height=" + (win.height - 10) + ",left=" + window.screenLeft + ",top=" + (window.screenTop - 70)
-                );
-                popupWindow.initialWindowId = win.id;
+                
+                chrome.windows.create({
+					'url': browser.runtime.getURL("app.html") + "?" + win.id,
+					'type': 'popup',
+					'focused': true,
+					'width': width,
+					'height': (win.height - 10),
+					'left': window.screenLeft,
+					'top': (window.screenTop - 70)
+				});
 
                 window.close(); // close the Chrome extension pop-up
             });
