@@ -6,7 +6,7 @@ const THIS_VERSION = '1.5.4'
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    var activeWindowId = window.initialWindowId
+    var activeWindowId = window.location.search.substr(1)
     var peekATabWindowId = null
     var closeOnFocusChange = true
 
