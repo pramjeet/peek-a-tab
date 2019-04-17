@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var activeWindowId = window.location.search.substr(1)
     var peekATabWindowId = null
-    var closeOnFocusChange = true
+    var closeOnFocusChange = true;
 
     var activeTabElement = null
 
