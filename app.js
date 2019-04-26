@@ -2,7 +2,7 @@
  * Created by pramj on 1/9/2017.
  */
 
-const THIS_VERSION = "1.5.5";
+const THIS_VERSION = "1.5.6";
 
 document.addEventListener("DOMContentLoaded", function() {
   var activeWindowId = window.location.search.substr(1);
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //if tab is in different window than change focus to that that window first
     if (tab.windowId != activeWindowId) {
       closeOnFocusChange = false;
-      changeActiveWindowTitle(activeWindowId, tab.windowId)
+      changeActiveWindowTitle(activeWindowId, tab.windowId);
       chrome.windows.update(tab.windowId, { focused: true }, function() {
         chrome.windows.update(peekATabWindowId, { focused: true }, function() {
           closeOnFocusChange = true;
@@ -118,12 +118,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  function changeActiveWindowTitle(oldWinId, newWinId){
-    oldWin = document.getElementById(oldWinId)
-    oldWin.textContent = "Window " + oldWin.dataset.nr
-    
-    newWin = document.getElementById(newWinId)
-    newWin.textContent = "Window " + newWin.dataset.nr + " (current)"
+  function changeActiveWindowTitle(oldWinId, newWinId) {
+    oldWin = document.getElementById(oldWinId);
+    oldWin.textContent = "Window " + oldWin.dataset.nr;
+
+    newWin = document.getElementById(newWinId);
+    newWin.textContent = "Window " + newWin.dataset.nr + " (current)";
   }
 
   function changeActiveTabAndCloseWindow(tab) {
@@ -203,12 +203,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
       for (var i = 0; i < windows.length; i++) {
         var aWindow = windows[i];
-        var isActiveWindowText = (activeWindowId == aWindow.id ? " (current)" : "")
+        var isActiveWindowText =
+          activeWindowId == aWindow.id ? " (current)" : "";
         var windowTitle = document.createElement("li");
         windowTitle.classList.add("window-text");
-        windowTitle.id = aWindow.id
-        windowTitle.dataset.nr = i + 1
-        windowTitle.textContent = "Window " + (i + 1) + isActiveWindowText
+        windowTitle.id = aWindow.id;
+        windowTitle.dataset.nr = i + 1;
+        windowTitle.textContent = "Window " + (i + 1) + isActiveWindowText;
         tabsListEl.appendChild(windowTitle);
 
         for (var j = 0; j < aWindow.tabs.length; j++) {
