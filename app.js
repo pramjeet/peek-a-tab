@@ -336,7 +336,15 @@ document.addEventListener("DOMContentLoaded", function() {
         makeNextTabActive();
         break;
       case 13: //enter
-        window.close();
+        // open first tab when where is no actived tab
+        var activeTab = document.querySelector("li.tab.active");
+        if(!activeTab){
+          var arrowDownEvent = new Event('keydown');
+          arrowDownEvent.keyCode = 40;
+          document.dispatchEvent(arrowDownEvent)
+        }else{
+          window.close()
+        }
         break;
       case 27: //esc
         window.close();
