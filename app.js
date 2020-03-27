@@ -33,14 +33,35 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   function highlight(text, textToHighlight) {
-    if (textToHighlight.length > 0)
-      return text
-        .toLowerCase()
-        .replace(
-          textToHighlight,
-          "<span class='highlight'>" + textToHighlight + "</span>"
-        );
+    if (textToHighlight.length > 0) {
+      var keywords = [getChineseKeyWordsByPinyin(text,textToHighlight)].concat(textToHighlight).filter(function(str){
+        return str != null && str.trim() != '';
+      });
+      console.info('keywords is ',keywords)
+      var regex = new RegExp(keywords.join('|'),'g')
+      console.info('regex and text is ',regex,text)
+      return text.toLowerCase()
+        .replace(regex,function(kw){
+          return "<span class='highlight'>" + kw + "</span>"
+        })
+    }
     else return text;
+  }
+
+  function getChineseKeyWordsByPinyin(text,pinyin){
+    var chars = text.split('');
+    var pinyins = chars.map(function(char){
+      return pinyinUtil.getPinyin(char);
+    })
+    var keywords = [];
+    for(var i = 0;i<pinyins.length;i++){
+      var _char = chars[i];
+      var _pinyin = pinyins[i]
+      if(pinyin.indexOf(_pinyin) >= 0 && _char != _pinyin && _char.trim() != ''){
+        keywords.push(_char);
+      }
+    }
+    return keywords.join('');
   }
 
   /**
@@ -222,6 +243,11 @@ document.addEventListener("DOMContentLoaded", function() {
               .indexOf(searchInput.value.trim().toLowerCase()) == -1 &&
             tab.url
               .toLowerCase()
+              .indexOf(searchInput.value.trim().toLowerCase()) == -1 &&
+
+            // chinese search
+            pinyinUtil.getPinyin(tab.title)
+              .replace(/\W/g,'')
               .indexOf(searchInput.value.trim().toLowerCase()) == -1
           ) {
             continue;
@@ -310,7 +336,15 @@ document.addEventListener("DOMContentLoaded", function() {
         makeNextTabActive();
         break;
       case 13: //enter
-        window.close();
+        // open first tab when where is no actived tab
+        var activeTab = document.querySelector("li.tab.active");
+        if(!activeTab){
+          var arrowDownEvent = new Event('keydown');
+          arrowDownEvent.keyCode = 40;
+          document.dispatchEvent(arrowDownEvent)
+        }else{
+          window.close()
+        }
         break;
       case 27: //esc
         window.close();
