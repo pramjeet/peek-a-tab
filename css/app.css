@@ -1,54 +1,11 @@
-#notification {
-  position: absolute;
-  width: 250px;
-  min-height: 60px;
-  right: 20px;
-  top: 36px;
-  background: #3cbd4d;
-  color: #fff;
-  padding: 15px 20px 15px 15px;
-  text-align: left;
-  z-index: 3;
-  font-size: 14px;
-  transition: 0.1s;
-  opacity: 0;
-  transform: translateX(100%);
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.24);
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-#notification.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-#notification-text {
-  margin: 0;
-}
-
-#notification-close-bttn {
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  height: 20px;
-  padding: 3px;
-  background-color: #e05454;
-  cursor: pointer;
-  border-radius: 50%;
-  box-sizing: border-box;
-}
-
 #tabs-list {
-  position: absolute;
-  top: 35px;
-  bottom: 0;
+  flex: 1;
   width: 100%;
   overflow-y: scroll;
   list-style: none;
   padding: 0;
   margin: 0;
-  background: #fafafa;
+  background: #fff;
 }
 
 .window-text {
@@ -74,8 +31,10 @@
   vertical-align: middle;
   /* overflow: hidden; */
   padding: 6px 7px;
-  background: #fafafa;
+  background: #fff;
   /* margin: 1px; */
+  display: flex;
+  align-items: center;
 }
 
 /* .tab::after {
@@ -117,7 +76,7 @@
   width: 20px;
   height: 20px;
   float: left;
-  margin: 9px 10px 0 0;
+  margin: 0 10px 0 0;
   /* background: #e0e0e0; */
   /* border: 2px solid #f3f3f3; */
   border-radius: 3px;
@@ -141,7 +100,7 @@
 
 .url {
   font-size: 12px;
-  margin: 4px 0 2px 30px;
+  margin: 4px 0 2px 0px;
   display: block;
   white-space: nowrap;
   overflow: hidden;

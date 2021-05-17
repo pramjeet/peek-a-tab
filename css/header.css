@@ -8,20 +8,18 @@ body {
 
 #app {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  height: 100%;
+  display: flex;
   width: 100%;
   overflow: hidden;
+  flex-direction: column;
 }
 
 #header {
-  position: fixed;
-  top: 0;
-  height: 75px;
   width: 100%;
   background: white;
   /* border-top: 1px solid #efefef; */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); */
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -35,18 +33,19 @@ body {
 
 #search-div {
   flex: 1;
-  height: 80%;
   box-sizing: border-box;
   display: block;
-  margin: 3px 8px;
+  margin: 7px 8px;
   position: relative;
   float: left;
+  height: 36px;
+  margin-bottom: 20px;
 }
 
 #search-icon {
   width: 20px;
-  top: 3px;
-  left: 5px;
+  top: 7px;
+  left: 9px;
   position: absolute;
 }
 
@@ -57,10 +56,11 @@ body {
   border: 1px solid #eee;
   width: 100%;
   height: 100%;
-  padding: 0 10px 0 30px;
+  padding: 0 15px 0 30px;
   box-sizing: border-box;
   display: block;
-  border-radius: 2px;
+  border-radius: 17px;
+  background: #fafafa;
 }
 
 ::-webkit-input-placeholder {
@@ -168,20 +168,53 @@ body {
   text-transform: uppercase;
 }
 
-#header-tabs {
+#nav-tabs {
   flex: 1;
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
+  border-bottom: 1px solid #efefef;
 }
 
-.header-tab {
-  height: 20px;
+.nav-tab {
+  height: 24px;
   border-bottom: 3px solid transparent;
-  padding: 0 10px;
+  padding: 0 0 0 10px;
+  cursor: pointer;
 }
 
-.header-tab.active {
+.nav-tab.active {
   color: #175fb9;
   border-bottom-color: #175fb9;
+}
+
+.nav-tab-count {
+  border-radius: 3px;
+  padding: 1px 3px;
+  font-size: 11px;
+  color: #353535;
+  display: inline-block;
+  margin-left: 3px;
+}
+
+#action-bar {
+  display: flex;
+  height: 30px;
+  background: #f9fafc;
+  border-bottom: 1px solid #efefef;
+}
+
+.bulk-options-dropdown {
+  flex: 1;
+  padding: 8px 15px;
+  border: none;
+  color: #909090;
+  font-size: 12px;
+}
+
+#bulk-select-options {
+  border-right: 1px solid #eee;
+}
+
+#bulk-action-options {
 }

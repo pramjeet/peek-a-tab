@@ -3,21 +3,20 @@ document.onkeydown = function (e) {
   switch (e.keyCode) {
     case 38: //up arrow
       e.preventDefault();
-      searchInput.blur();
-      makePreviousTabActive();
+      searchFunctions.blurSearchInput();
+      tabFunctions.focusPreviousTab();
       break;
     case 40: //down arrow
       e.preventDefault();
-      searchInput.blur();
-      makeNextTabActive();
+      searchFunctions.blurSearchInput();
+      tabFunctions.focusNextTab();
       break;
     case 13: //enter
       // open first tab when where is no actived tab
+
       var activeTab = document.querySelector("li.tab.active");
       if (!activeTab) {
-        var arrowDownEvent = new Event("keydown");
-        arrowDownEvent.keyCode = 40;
-        document.dispatchEvent(arrowDownEvent);
+        makeTabIndexActive(0);
       } else {
         window.close();
       }
@@ -35,9 +34,8 @@ document.onkeydown = function (e) {
     default:
       //if search input is not focused and space or any of alphanumeric keys is pressed
       if (document.activeElement != searchInput) {
-        searchInput.focus();
+        searchFunctions.focusSearchInput();
         // searchInput.value = searchInput.value + String.fromCharCode(e.keyCode)
       }
-      populateTabs();
   }
 };

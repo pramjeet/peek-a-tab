@@ -89,15 +89,59 @@
           </div>
         </div>
 
-        <div id="header-tabs">
-          <a class="header-tab active">All (35)</a>
-          <a class="header-tab">Audible (3)</a>
-          <a class="header-tab">Killed (3)</a>
-          <a class="header-tab">Saved for Later (300)</a>
+        <div id="nav-tabs">
+          <a class="nav-tab active" id="nav-tab-all"
+            >All <span class="nav-tab-count" id="allCountSpan">50</span></a
+          >
+          <a class="nav-tab" id="nav-tab-audible"
+            >Audible
+            <span class="nav-tab-count" id="audibleCountSpan">2</span></a
+          >
+          <a class="nav-tab" id="nav-tab-killed"
+            >Killed
+            <span class="nav-tab-count" id="killedCountSpan">10</span></a
+          >
+          <a class="nav-tab" id="nav-tab-saved"
+            >Saved for Later
+            <span class="nav-tab-count" id="savedCountSpan">190</span></a
+          >
+          <a class="nav-tab" id="nav-tab-history"
+            >History<span class="nav-tab-count" id="historyCountSpan"
+              >1250</span
+            ></a
+          >
+        </div>
+        <div id="action-bar">
+          <div class="bulk-options-dropdown" id="bulk-select-options">
+            0 Selected
+          </div>
+          <!-- <select class="bulk-options-dropdown" id="bulk-select-options">
+            <option>0 selected</option>
+            <option>Select All</option>
+            <option>Select Killed</option>
+            <option>Select Audible</option>
+          </select>
+
+          
+          <select class="bulk-options-dropdown" id="bulk-action-options">
+            <option>Select an action</option>
+            <option>Order by domain (alphabatical)</option>
+            <option>Order by sub-domain (alphabatical)</option>
+            <option>Group by domain</option>
+            <option>Group by sub-domain</option>
+            <option>Kill all</option>
+            <option>Revive all</option>
+            <option>Close all</option>
+            <option>Mute all</option>
+          </select> -->
+
+          <div class="bulk-options-dropdown">Select an action</div>
         </div>
       </div>
 
+      <!-- <div id="tab-list-wrapper"> -->
       <ul id="tabs-list"></ul>
+      <!-- </div> -->
 
       <div id="announcement-container">
         <div id="announcement_header">
@@ -112,10 +156,15 @@
         </div>
       </div>
     </div>
-    <script src="js/const.js"></script>
+    <script src="js/chrome-storage.js"></script>
+    <script src="js/global-store.js"></script>
+    <script src="js/global-listeners.js"></script>
     <script src="js/utils.js"></script>
-    <script src="js/tabs.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/tabs-and-windows.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/actions.js"></script>
+    <script src="js/search.js"></script>
     <script src="js/keyboard.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
