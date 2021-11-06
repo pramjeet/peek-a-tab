@@ -1,6 +1,6 @@
-# Peek-a-tab, tabs manager for Google Chrome™
+# 标签选择器
 
-> Search, preview, jump across, and close tabs quickly in your chrome browser
+> 标签选择器
 
 Do you have a lot of tabs opened in your browser and find it cumbersome to manage them, well, here's the solution.
 
