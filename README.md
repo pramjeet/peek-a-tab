@@ -2,8 +2,6 @@
 
 > Search, preview, jump across, and close tabs quickly in your chrome browser
 
-[Chrome Store link](https://chrome.google.com/webstore/detail/peek-a-tab/nnpdamdaknpnohmlbnmgphiodghbohop)
-
 Do you have a lot of tabs opened in your browser and find it cumbersome to manage them, well, here's the solution.
 
 

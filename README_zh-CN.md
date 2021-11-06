@@ -2,8 +2,6 @@
 
 > 支持在谷歌浏览器器进行快速标签搜索、预览、跳转、关闭等操作
 
-[谷歌应用商店地址](https://chrome.google.com/webstore/detail/peek-a-tab/nnpdamdaknpnohmlbnmgphiodghbohop)
-
 你是否苦于chrome中的大量标签页而无法管理呢？这个插件能帮你从苦恼中解脱💐
 
 
