@@ -11,11 +11,5 @@
     "default_popup": "popup.html"
   },
   "permissions": ["tabs", "storage"],
-  "offline_enabled": true,
-  "commands": {
-    "_execute_browser_action": {
-      "suggested_key": {
-      }
-    }
-  }
+  "offline_enabled": true
 }
