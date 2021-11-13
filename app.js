@@ -1,5 +1,5 @@
 /**
- * Created by pramj on 1/9/2017.
+ * Created by fudongdong on 2021-11-13
  */
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -139,10 +139,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function changeActiveWindowTitle(oldWinId, newWinId) {
     oldWin = document.getElementById(oldWinId);
-    oldWin.textContent = "Window " + oldWin.dataset.nr;
+    oldWin.textContent = "窗口 " + oldWin.dataset.nr;
 
     newWin = document.getElementById(newWinId);
-    newWin.textContent = "Window " + newWin.dataset.nr + " (current)";
+    newWin.textContent = "窗口 " + newWin.dataset.nr + " (当前窗口)";
   }
 
   function changeActiveTabAndCloseWindow(tab) {
@@ -223,12 +223,12 @@ document.addEventListener("DOMContentLoaded", function() {
       for (var i = 0; i < windows.length; i++) {
         var aWindow = windows[i];
         var isActiveWindowText =
-          activeWindowId == aWindow.id ? " (current)" : "";
+          activeWindowId == aWindow.id ? " (当前窗口)" : "";
         var windowTitle = document.createElement("li");
         windowTitle.classList.add("window-text");
         windowTitle.id = aWindow.id;
         windowTitle.dataset.nr = i + 1;
-        windowTitle.textContent = "Window " + (i + 1) + isActiveWindowText;
+        windowTitle.textContent = "窗口 " + (i + 1) + isActiveWindowText;
         tabsListEl.appendChild(windowTitle);
 
         for (var j = 0; j < aWindow.tabs.length; j++) {

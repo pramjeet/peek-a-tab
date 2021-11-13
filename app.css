@@ -309,16 +309,6 @@ body {
     display: block;
 }
 
-#announcement-container {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    padding: 0;
-    background: #d3eae0;
-    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.2);
-    transform: translateY(100%);
-    transition: 0.3s;
-}
 
 #announcement_header {
     height: 40px;
@@ -356,8 +346,4 @@ body {
     font-size: 13px;
     margin-bottom: 6px;
     color: #00733d;
-}
-
-#announcement-container.visible {
-    transform: translateY(0)
 }
