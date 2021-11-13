@@ -1,19 +1,19 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "标签选择器",
   "description": "标签选择器",
   "version": "0.0.2",
   "icons": {
     "128": "icon_128.png"
   },
-  "browser_action": {
+  "action": {
     "default_icon": "icon_128.png",
     "default_popup": "popup.html"
   },
   "permissions": ["tabs", "storage"],
   "offline_enabled": true,
   "commands": {
-    "_execute_browser_action": {
+    "_execute_action": {
       "suggested_key": {
         "mac": "Command+E"
       }
