@@ -1,14 +1,14 @@
-# 标签选择器
+# 谷歌标签页管理器
 
-> 标签选择器
+> 支持在谷歌浏览器器进行快速标签搜索、预览、跳转、关闭等操作
 
-Do you have a lot of tabs opened in your browser and find it cumbersome to manage them, well, here's the solution.
+你是否苦于chrome中的大量标签页而无法管理呢？这个插件能帮你从苦恼中解脱💐
 
 
-#### Features
-* Use Alt+Space (Option+Space for mac) to get a **list of all the tabs** from all the windows.
-* **Search** in the title & url to quickly get the tab you want.
-* **Preview** a tab on mouse hover or on click.
-* **Jump across** between tabs quickly, even in different windows.
-* **Close** unnecessary tabs quickly.
+#### 功能
+* 通过 Command+E 获取到浏览器中**所有的标签列表**
+* 根据 title、url 等进行快速搜索**搜索**
+* 通过鼠标点击或悬浮即可**预览**特定的标签
+* 可快速在大量标签中**跳转**（跨window也是支持的）
+* 极速**关闭**无用标签页
 
