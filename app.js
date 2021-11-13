@@ -88,13 +88,13 @@ document.addEventListener("DOMContentLoaded", function() {
     chrome.tabs.remove(+tabId);
     tabElement.remove();
 
-    //if only one tab was present before closing this tab, close peek-a-tab window too
+    //if only one tab was present before closing this tab, close tabs-manager window too
     if (tabEls.length == 1) {
       window.close();
     }
   }
 
-  //get peek-a-tab window id and listener for focus change
+  //get tabs-manager window id and listener for focus change
   chrome.windows.getCurrent({}, function(peekATabWindow) {
     peekATabWindowId = peekATabWindow.id;
     chrome.windows.onFocusChanged.addListener(function(newWindowId) {
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function() {
     chrome.windows.getAll({ populate: true, windowTypes: ["normal"] }, function(
       windows
     ) {
-      //if no window present, close peek-a-tab
+      //if no window present, close tags-manager
       if (windows.length == 0) {
         window.close();
       }
