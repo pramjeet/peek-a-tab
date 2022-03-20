@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/yihuaxiang/peek-a-tab/issues"
   },
-  "homepage": "https://github.com/yihuaxiang/peek-a-tab#readme"
+  "homepage": "https://github.com/yihuaxiang/peek-a-tab#readme",
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4"
+  }
 }
