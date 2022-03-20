@@ -1,0 +1,27 @@
+{
+  "name": "tab-manager",
+  "version": "1.0.0",
+  "description": "> 标签选择器",
+  "main": ".eslintrc.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yihuaxiang/peek-a-tab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yihuaxiang/peek-a-tab/issues"
+  },
+  "homepage": "https://github.com/yihuaxiang/peek-a-tab#readme",
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4"
+  }
+}

@@ -1,25 +1,29 @@
 {
-  "manifest_version": 2,
-  "name": "Peek-a-tab, Tabs Manager for Google Chrome™",
-  "description": "Search, preview, jump across, and close tabs quickly in your chrome browser.",
-  "version": "1.5.6",
+  "manifest_version": 3,
+  "name": "标签选择器",
+  "description": "标签选择器",
+  "version": "0.0.4",
   "icons": {
     "128": "icon_128.png"
   },
-  "browser_action": {
+  "action": {
     "default_icon": "icon_128.png",
     "default_popup": "popup.html"
   },
   "permissions": ["tabs", "storage"],
-  "offline_enabled": true,
   "commands": {
-    "_execute_browser_action": {
+    "_execute_action": {
       "suggested_key": {
-        "windows": "Alt+Space",
-        "mac": "Alt+Space",
-        "chromeos": "Alt+Space",
-        "linux": "Alt+Space"
+        "mac": "Command+E"
       }
+    }
+  },
+  "_execute_action": {
+    "suggested_key": {
+      "windows": "Ctrl+E",
+      "mac": "Command+E",
+      "chromeos": "Ctrl+E",
+      "linux": "Ctrl+E"
     }
   }
 }

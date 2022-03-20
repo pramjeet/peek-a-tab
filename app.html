@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Peek a tab</title>
+    <title>标签选择器</title>
     <link href="fonts/stylesheet.css" rel="stylesheet" type="text/css" />
     <link href="app.css" rel="stylesheet" type="text/css" />
   </head>
@@ -12,7 +12,7 @@
         <div id="search-div">
           <img id="search-icon" src="./images/search.png" />
           <input
-            placeholder="search title and url"
+            placeholder="搜索网址或标题"
             id="search-input"
             type="text"
             v-model="searchText"
@@ -39,8 +39,7 @@
                   src="./images/cursor-pointer-hover.png"
                 />
                 <p class="option-choice-text">
-                  Change Tab on hover, single click to shift to the tab and
-                  close tabs list.
+                  悬浮切换tab，单击列表即切换到对应tab并关闭列表
                 </p>
               </div>
 
@@ -53,7 +52,7 @@
                   src="./images/cursor-pointer-single-click.png"
                 />
                 <p class="option-choice-text">
-                  Shift to the tab and close tabs list with a single click.
+                  单击列表即切换到对应tab并关闭列表
                 </p>
               </div>
 
@@ -66,42 +65,21 @@
                   src="./images/cursor-pointer-click.png"
                 />
                 <p class="option-choice-text">
-                  Change Tab on click, double click to shift to the tab and
-                  close tabs list.
+                  点击切换，双击切换tab并关闭列表
                 </p>
               </div>
             </div>
 
-            <!--<div class="option-hint">-->
-            <!--<p class="option-hint-text">-->
-            <!--<span>-->
-            <!--Change mouse behavior-->
-            <!--</span>-->
-            <!--</p>-->
-
-            <!--<button class="option-hint-button">-->
-            <!--ok-->
-            <!--</button>-->
-            <!--</div>-->
           </div>
         </div>
       </div>
 
       <ul id="tabs-list"></ul>
 
-      <div id="announcement-container">
-        <div id="announcement_header">
-          <h3 id="announcement-title">What's New</h3>
-          <img id="announcement-close-icon" src="images/close_icon.png" />
-        </div>
-        <div id="announcement-body">
-          <ul id="announcement-list">
-            <li>Bug fixed: Window opens and closes immediately</li>
-            <li>Shows 'current' against the active window</li>
-          </ul>
-        </div>
-      </div>
+
     </div>
+    <script src="./lib/chinese/pinyin_dict_notone.js"></script>
+    <script src="./lib/chinese/pinyinUtil.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
